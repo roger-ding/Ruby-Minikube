@@ -1,0 +1,13 @@
+# Ignore test-related files
+*.sw?
+.DS_Store
+doc
+pkg
+Gemfile.lock
+.bundle
+*.rbc
+bin
+bundle
+.bundle
+specs.out
+.idea
