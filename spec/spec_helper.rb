@@ -1,7 +1,7 @@
-SimpleCov.start
-
 require 'simplecov'
 require 'simplecov-json'
+
+SimpleCov.start
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
