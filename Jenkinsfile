@@ -31,4 +31,13 @@ node {
 
 	stage "Rspec"
 	sh "rspec spec --format documentation ${scm_dir}"
+
+	publishHTML (target: [
+			allowMissing: false,
+			alwaysLinkToLastBuild: false,
+			keepAll: true,
+			reportDir: 'coverage',
+			reportFiles: 'index.html',
+			reportName: "RCov Report"
+	])
 }
