@@ -20,12 +20,11 @@ node {
 	stage "Check Syntax"
 	sh "cd ${scm_dir}"
 	// sh "find . -name *.rb"
-	FILES = sh "find . -name '*.rb'"
-	sh "echo ${FILES}"
+	sh "find . -name *.rb -exec ruby -c {} > /dev/null \\;"
 	// sh "for i in ${FILES}; do ruby -c $i; done;"
 
 	stage "Install Dependencies"
-	sh "gem install bundle"
+	sh "bundle install"
 
 	stage "Rubocop"
 	sh "rubocop ${scm_dir}"
