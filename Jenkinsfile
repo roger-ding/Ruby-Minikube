@@ -19,7 +19,6 @@ node {
 	stage "Delete DIRS"
 	deleteDir()
 	sh "rm -rf ${WORKSPACE}"
-	sh "ls -ltr ${WORKSPACE}"
 
 	stage "Check Syntax"
 	sh "find ${scm_dir} -name *.rb -exec echo {} \\; -exec ruby -c {} \\;"
