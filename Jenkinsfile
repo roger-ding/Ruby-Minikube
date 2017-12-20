@@ -2,14 +2,13 @@
 
 node {
 	// currentBuild.displayName = "${BUILD_NAME}_${currentBuild.number}"
-	// currentBuild.displayName = "${GIT_BRANCH}"
+	currentBuild.displayName = "${GIT_BRANCH}"
+
 	stage "Display ENV Variables"
 	sh "printenv"
 
 	stage "Pull SCM"
-
-	sh "echo ${WORKSPACE}"
-	scm_dir = "${WORKSPACE}"
+	scm_dir = "${JENKINS_HOME}"
 
 	dir(scm_dir) {
 		checkout scm
