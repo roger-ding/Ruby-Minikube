@@ -9,7 +9,7 @@ node {
 	stage "Pull SCM"
 
 	sh "echo ${WORKSPACE}"
-	scm = ${WORKSPACE}
+	scm = "${WORKSPACE}"
 
 	dir(scm) {
 		checkout scm
