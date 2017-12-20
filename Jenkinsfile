@@ -24,7 +24,7 @@ node {
 	// sh "for i in ${FILES}; do ruby -c $i; done;"
 
 	stage "Install Dependencies"
-	sh "bundle install"
+	sh "gem install rubocop rspec simplecov simplecov-json"
 
 	stage "Rubocop"
 	sh "rubocop ${scm_dir}"
