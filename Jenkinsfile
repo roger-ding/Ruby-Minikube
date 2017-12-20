@@ -2,11 +2,9 @@
 
 node {
 	currentBuild.displayName = "TEST_${currentBuild.number}"
-	// currentBuild.displayName = "${GIT_BRANCH}"
 
 	stage "Pull SCM"
 	scm_dir = "${JENKINS_HOME}"
-	original_dir = "${WORKSPACE}"
 
 	dir(scm_dir) {
 		checkout scm
@@ -16,7 +14,7 @@ node {
 	stage "Check Syntax"
 	sh "find ${scm_dir} -name *.rb -exec echo {} \\; -exec ruby -c {} \\;"
 
-	stage "Install Dependencies"
+	stage "Install Ruby Dependencies"
 	sh "gem install rubocop rspec simplecov simplecov-html simplecov-json"
 
 	stage "Rubocop"
