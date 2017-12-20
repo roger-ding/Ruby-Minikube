@@ -18,8 +18,8 @@ node {
 	deleteDir()
 
 	stage "Check Syntax"
-	sh "find ${scm_dir} -name *.rb -exec echo {} \\;"
-	sh "find ${scm_dir} -name *.rb -exec ruby -c {} \\;"
+	// sh "find ${scm_dir} -name *.rb -exec echo {} \\;"
+	sh "find ${scm_dir} -name *.rb -exec echo && ruby -c {} \\;"
 
 	stage "Install Dependencies"
 	sh "gem install rubocop rspec simplecov simplecov-rcov simplecov-json"
@@ -33,9 +33,9 @@ node {
 	publishHTML ([
 			allowMissing: false,
 			alwaysLinkToLastBuild: false,
-			keepAll: true,
-			reportDir: "${scm_dir}/coverage",
-			reportFiles: "${scm_dir}/index.html",
+			keepAll: false,
+			reportDir: 'coverage',
+			reportFiles: 'index.html',
 			reportName: "RCov Report"
 	])
 }
