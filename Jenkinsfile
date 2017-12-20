@@ -17,7 +17,8 @@ node {
 	}
 
 	stage "Delete DIRS"
-	original_dir.deleteDir()
+	deleteDir()
+	sh "rm -rf ${WORKSPACE}"
 	sh "ls -ltr ${WORKSPACE}"
 
 	stage "Check Syntax"
