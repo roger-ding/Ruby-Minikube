@@ -11,7 +11,7 @@ end
 SimpleCov.configure do
   clean_filters
   load_adapter 'test_frameworks'
-  # add_filter '/Users/roger.ding/.rbenv/'
+  add_filter '/usr/local/rvm/'
 end
 
 SimpleCov.start 'test_frameworks'
