@@ -14,7 +14,7 @@ node {
 	deleteDir()
 
 	stage "Check Syntax"
-	sh "find . -name *.rb -exec ruby -c {} > /dev/null \\;"
+	sh "find . -name *.rb"
 	// sh "FILES=\$(find . -name "*.rb*")"
 	// sh "for i in \${FILES}; do ruby -c \$i; done; \\"
 
@@ -25,5 +25,5 @@ node {
 	sh "rubocop"
 
 	stage "Run Rspec"
-	sh "rspec spec —format documentation"
+	sh "rspec"
 }
