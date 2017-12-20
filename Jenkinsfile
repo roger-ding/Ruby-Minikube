@@ -1,11 +1,8 @@
 #!groovy
 
 node {
-	// currentBuild.displayName = "${BUILD_NAME}_${currentBuild.number}"
+	currentBuild.displayName = "TEST_${currentBuild.number}"
 	// currentBuild.displayName = "${GIT_BRANCH}"
-
-	stage "Display ENV Variables"
-	sh "printenv"
 
 	stage "Pull SCM"
 	scm_dir = "${JENKINS_HOME}"
@@ -15,9 +12,6 @@ node {
 		checkout scm
 		sleep 5
 	}
-
-	stage "Delete DIRS"
-	deleteDir()
 
 	stage "Check Syntax"
 	sh "find ${scm_dir} -name *.rb -exec echo {} \\; -exec ruby -c {} \\;"
@@ -31,6 +25,7 @@ node {
 	stage "Rspec"
 	sh "rspec spec --format documentation ${scm_dir}"
 
+	stage "Publish Rcov Report"
 	publishHTML ([
 			allowMissing: false,
 			alwaysLinkToLastBuild: false,
