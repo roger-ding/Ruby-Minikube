@@ -9,9 +9,9 @@ node {
 	stage "Pull SCM"
 
 	sh "echo ${WORKSPACE}"
-	scm = "${JENKINS_HOME}"
+	scm_dir = "${JENKINS_HOME}"
 
-	dir(scm) {
+	dir(scm_dir) {
 		checkout scm
 		sleep 5
 	}
@@ -27,8 +27,8 @@ node {
 	sh "gem install bundle"
 
 	stage "Rubocop"
-	sh "rubocop ${scm}"
+	sh "rubocop ${scm_dir}"
 
 	stage "Rspec"
-	sh "rspec spec --format documentation ${scm}"
+	sh "rspec spec --format documentation ${scm_dir}"
 }
