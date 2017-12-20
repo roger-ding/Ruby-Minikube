@@ -9,7 +9,7 @@ node {
 	stage "Pull SCM"
 
 	sh "echo ${WORKSPACE}"
-	scm = "${WORKSPACE}"
+	scm = "${JENKINS_HOME}"
 
 	dir(scm) {
 		checkout scm
