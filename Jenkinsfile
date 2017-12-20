@@ -20,7 +20,7 @@ node {
 	stage "Check Syntax"
 	sh "cd ${scm_dir}"
 	// sh "find . -name *.rb"
-	sh "find . -name *.rb -exec ruby -c {} > /dev/null \\;"
+	sh "find ${scm_dir} -name=*.rb -exec ruby -c {} \\;"
 	// sh "for i in ${FILES}; do ruby -c $i; done;"
 
 	stage "Install Dependencies"
