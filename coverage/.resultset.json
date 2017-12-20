@@ -1,0 +1,40 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/roger.ding/Documents/R.GIT/personal/Ruby-Minikube/test.rb": [
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1
+      ],
+      "/Users/roger.ding/Documents/R.GIT/personal/Ruby-Minikube/more_test.rb": [
+        null,
+        1,
+        null,
+        1
+      ]
+    },
+    "timestamp": 1513736993
+  }
+}

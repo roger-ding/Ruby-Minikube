@@ -3,6 +3,8 @@
 node {
 	// currentBuild.displayName = "${BUILD_NAME}_${currentBuild.number}"
 	// currentBuild.displayName = "${GIT_BRANCH}"
+	stage "Display ENV Variables"
+	sh "printenv"
 
 	stage "Pull SCM"
 
@@ -29,5 +31,5 @@ node {
 	sh "rubocop ${workspace}"
 
 	stage "Run Rspec"
-	sh "rspec"
+	sh "rspec ${workspace}"
 }
