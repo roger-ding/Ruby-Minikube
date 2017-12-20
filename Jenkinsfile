@@ -21,7 +21,8 @@ node {
 	sh "cd ${scm_dir}"
 	// sh "find . -name *.rb"
 	FILES = sh "find . -name '*.rb'"
-	sh "for i in ${FILES}; do ruby -c $i; done;"
+	sh "echo ${FILES}"
+	// sh "for i in ${FILES}; do ruby -c $i; done;"
 
 	stage "Install Dependencies"
 	sh "gem install bundle"
