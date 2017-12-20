@@ -9,5 +9,3 @@ SimpleCov.configure do
   load_adapter 'test_frameworks'
   # add_filter '/Users/roger.ding/.rbenv/'
 end
-
-SimpleCov.start 'test_frameworks'
