@@ -14,7 +14,7 @@ node {
 	deleteDir()
 
 	stage "Check Syntax"
-	sh "FILES=$(find . -name "*.rb*"); for i in ${FILES}; do ruby -c $i; done;"
+	sh "FILES=\$(find . -name "*.rb*"); for i in \${FILES}; do ruby -c \$i; done;"
 
 	stage "Install Dependencies"
 	sh "gem install bundle"
