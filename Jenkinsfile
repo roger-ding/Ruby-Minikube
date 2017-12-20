@@ -9,14 +9,16 @@ node {
 
 	stage "Pull SCM"
 	scm_dir = "${JENKINS_HOME}"
+	original_dir = "${WORKSPACE}"
 
 	dir(scm_dir) {
 		checkout scm
 		sleep 5
 	}
 
-	deleteDir()
-	sh "rm -rf ${WORKSPACE}"
+	stage "Delete DIRS"
+	original_dir.deleteDir()
+	sh "ls -ltr ${WORKSPACE}"
 
 	stage "Check Syntax"
 	sh "find ${scm_dir} -name *.rb -exec echo {} \\; -exec ruby -c {} \\;"
