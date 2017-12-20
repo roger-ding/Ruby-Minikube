@@ -6,7 +6,9 @@ node {
 
 	stage "Pull SCM"
 
-	dir('/home/jenkins/workspace/Ruby') {
+	workspace = '/home/jenkins/workspace/Ruby'
+
+	dir(workspace) {
 		checkout scm
 		sleep 5
 	}
@@ -24,7 +26,7 @@ node {
 	stage "Run Rubocop"
 	sh "ls -ltr /home/jenkins/workspace/Ruby/"
 	sh "export HOME=/home/jenkins/workspace/Ruby"
-	sh "rubocop"
+	sh "rubocop ${workspace}"
 
 	stage "Run Rspec"
 	sh "rspec"
