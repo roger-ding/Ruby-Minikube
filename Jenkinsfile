@@ -21,7 +21,7 @@ node {
 	sh "find ${scm_dir} -name *.rb -exec echo {} \\; -exec ruby -c {} \\;"
 
 	stage "Install Dependencies"
-	sh "gem install rubocop rspec simplecov simplecov-rcov simplecov-json"
+	sh "gem install rubocop rspec simplecov simplecov-html simplecov-json"
 
 	stage "Rubocop"
 	sh "rubocop ${scm_dir}"
