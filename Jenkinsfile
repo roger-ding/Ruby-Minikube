@@ -2,7 +2,7 @@
 
 node {
 	// currentBuild.displayName = "${BUILD_NAME}_${currentBuild.number}"
-	currentBuild.displayName = "${GIT_BRANCH}"
+	// currentBuild.displayName = "${GIT_BRANCH}"
 
 	stage "Display ENV Variables"
 	sh "printenv"
@@ -18,9 +18,9 @@ node {
 	deleteDir()
 
 	stage "Check Syntax"
-	sh "find . -name *.rb"
-	// sh "FILES=\$(find . -name "*.rb*")"
-	// sh "for i in \${FILES}; do ruby -c \$i; done; \\"
+	sh "cd ${scm_dir}"
+	// sh "find . -name *.rb"
+	sh "FILES=\$(find . -name "*.rb*"); for i in ${FILES}; do ruby -c $i; done;"
 
 	stage "Install Dependencies"
 	sh "gem install bundle"
