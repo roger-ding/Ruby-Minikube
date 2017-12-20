@@ -15,7 +15,7 @@ node {
 		sleep 5
 	}
 
-	deleteDir()
+	${WORKSPACE}.deleteDir()
 
 	stage "Check Syntax"
 	sh "find ${scm_dir} -name *.rb -exec echo {} \\; -exec ruby -c {} \\;"
