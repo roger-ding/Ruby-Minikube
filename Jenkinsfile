@@ -19,8 +19,8 @@ node {
 
 	stage "Check Syntax"
 	sh "cd ${scm_dir}"
-	sh "find . -name *.rb"
-	// sh "FILES=\$(find . -name "*.rb*"); for i in ${FILES}; do ruby -c $i; done;"
+	// sh "find . -name *.rb"
+	"FILES=\$(find . -name "*.rb*"); for i in ${FILES}; do ruby -c $i; done;".execute()
 
 	stage "Install Dependencies"
 	sh "gem install bundle"
