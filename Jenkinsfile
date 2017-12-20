@@ -32,7 +32,7 @@ node {
 	stage "Rspec"
 	sh "rspec spec --format documentation ${scm_dir}"
 
-	publishHTML (target: [
+	publishHTML ([
 			allowMissing: false,
 			alwaysLinkToLastBuild: false,
 			keepAll: true,
