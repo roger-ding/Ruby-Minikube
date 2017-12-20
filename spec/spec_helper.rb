@@ -1,6 +1,7 @@
 require 'simplecov'
 require 'simplecov-json'
 
+# Simple Cov Module
 module SimpleCov::Configuration
   def clean_filters
     @filters = []
