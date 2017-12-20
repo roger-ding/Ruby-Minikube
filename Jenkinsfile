@@ -23,5 +23,5 @@ node {
 	sh "rubocop"
 
 	stage "Run Rspec"
-	sh "rspec spec —format documentation“
+	sh "rspec spec —format documentation"
 }
