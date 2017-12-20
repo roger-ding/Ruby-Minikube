@@ -22,6 +22,7 @@ node {
 	sh "gem install bundle"
 
 	stage "Run Rubocop"
+	sh "export HOME=/home/jenkins/workspace/Ruby"
 	sh "rubocop"
 
 	stage "Run Rspec"
