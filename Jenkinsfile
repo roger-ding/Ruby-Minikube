@@ -18,7 +18,6 @@ node {
 	deleteDir()
 
 	stage "Check Syntax"
-	// sh "find ${scm_dir} -name *.rb -exec echo {} \\;"
 	sh "find ${scm_dir} -name *.rb -exec echo {} \\; -exec ruby -c {} \\;"
 
 	stage "Install Dependencies"
