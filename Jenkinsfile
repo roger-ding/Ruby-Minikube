@@ -1,8 +1,8 @@
 #!groovy
 
 node {
-	currentBuild.displayName = "${BUILD_NAME}_${currentBuild.number}"
-    	// currentBuild.displayName = "${GIT_BRANCH}"
+	// currentBuild.displayName = "${BUILD_NAME}_${currentBuild.number}"
+	// currentBuild.displayName = "${GIT_BRANCH}"
 
 	stage "Pull SCM"
 
