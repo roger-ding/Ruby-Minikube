@@ -31,5 +31,5 @@ node {
 	sh "rubocop ${workspace}"
 
 	stage "Run Rspec"
-	sh "rspec ${workspace}"
+	sh "rspec spec --format documentation ${workspace}"
 }
