@@ -3,12 +3,10 @@
 node {
 	currentBuild.displayName = "TEST_${currentBuild.number}"
 
-	directory = "/var/jenkins_home/jobs/Playground/jobs/Ruby PR Validator/workspace@script"
-
 	stage "Pull SCM"
-	// scm_dir = "${JENKINS_HOME}"
+	scm_dir = "${JENKINS_HOME}"
 
-	dir(directory) {
+	dir(scm_dir) {
 		checkout scm
 		sleep 5
 	}
@@ -20,10 +18,10 @@ node {
 	sh "gem install rubocop rspec simplecov simplecov-html simplecov-json"
 
 	stage "Rubocop"
-	sh "rubocop ${directory}"
+	sh "rubocop ${scm_dir}"
 
 	stage "Rspec"
-	sh "rspec spec --format documentation ${directory}"
+	sh "rspec spec --format documentation ${scm_dir}"
 
 	stage "Publish Rcov Report"
 	publishHTML ([
